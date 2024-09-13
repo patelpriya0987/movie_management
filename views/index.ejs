@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+    <!-- Bootstrap CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Movies</h1>
+        <a href="/add" class="btn btn-outline-dark mb-3">Add New Movie</a>
+        <div class="row">
+            <% movies.forEach(movie => { %>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="/<%= movie.poster %>" class="card-img-top" alt="<%= movie.title %>">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= movie.title %></h5>
+                        <p class="card-text"><%= movie.description %></p>
+                        <a href="/edit/<%= movie._id %>" class="btn btn-outline-warning">Edit</a>
+                        <a href="/delete/<%= movie._id %>" class="btn btn-outline-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Movie</title>
+    <!-- Bootstrap CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Edit Movie</h1>
+        <form action="/update/<%= movie._id %>" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" name="title" class="form-control" id="title" value="<%= movie.title %>" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea name="description" class="form-control" id="description" required><%= movie.description %></textarea>
+            </div>
+            <div class="form-group">
+                <label for="releaseDate">Release Date</label>
+                <input type="date" name="releaseDate" class="form-control" id="releaseDate" value="<%= movie.releaseDate.toISOString().split('T')[0] %>" required>
+            </div>
+            <div class="form-group">
+                <label for="genre">Genre</label>
+                <input type="text" name="genre" class="form-control" id="genre" value="<%= movie.genre %>" required>
+            </div>
+            <div class="form-group">
+                <label for="rating">Rating</label>
+                <input type="number" name="rating" class="form-control" id="rating" value="<%= movie.rating %>" required>
+            </div>
+            <div class="form-group">
+                <label for="poster">Movie Poster</label>
+                <input type="file" name="poster" class="form-control-file" id="poster">
+            </div>
+            <button type="submit" class="btn btn-primary">Update Movie</button>
+        </form>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
